@@ -14,14 +14,23 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from fastapi import FastAPI
-from sqlite_db.main import router
+from typing import List, Optional
+
+from pydantic import BaseModel
 
 
-app = FastAPI()
-app.include_router(router)
+class LeituraBase(BaseModel):
+    device: int
+    leitura: float
+    timestamp: int
 
-@app.get("/")
-async def root():
-    return {"message": "API do Sistema de Hidrômetros Digitais"}
 
+class LeituraCreate(LeituraBase):
+    pass
+
+
+class Leitura(LeituraBase):
+    id: int
+
+    class Config:
+        orm_mode = True

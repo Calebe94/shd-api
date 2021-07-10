@@ -14,14 +14,17 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from fastapi import FastAPI
-from sqlite_db.main import router
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Float 
+from sqlalchemy.orm import relationship
+
+from .database import Base
 
 
-app = FastAPI()
-app.include_router(router)
+class Leituras(Base):
+    __tablename__ = "leituras"
 
-@app.get("/")
-async def root():
-    return {"message": "API do Sistema de Hidrômetros Digitais"}
+    id = Column(Integer, primary_key=True, unique=True, index=True)
+    device = Column(Integer)
+    leitura = Column(Float)
+    timestamp = Column(Integer)
 

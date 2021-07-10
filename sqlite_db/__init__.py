@@ -13,15 +13,3 @@
 #
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-from fastapi import FastAPI
-from sqlite_db.main import router
-
-
-app = FastAPI()
-app.include_router(router)
-
-@app.get("/")
-async def root():
-    return {"message": "API do Sistema de Hidrômetros Digitais"}
-

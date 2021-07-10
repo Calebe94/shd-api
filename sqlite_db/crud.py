@@ -14,14 +14,20 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from fastapi import FastAPI
-from sqlite_db.main import router
+from sqlalchemy.orm import Session
+from . import models, schemas
 
 
-app = FastAPI()
-app.include_router(router)
+def get_leitura(db: Session, device: int):
+    return db.query(models.Leituras).filter(models.Leituras.device == device).order_by(models.Leituras.id.desc()).first()
 
-@app.get("/")
-async def root():
-    return {"message": "API do Sistema de Hidrômetros Digitais"}
+def get_leitura_by_device(db: Session, device: int):
+    return db.query(models.Leituras).filter(models.Leituras.device == device).first()
+
+def create_leitura(db: Session, leitura: schemas.LeituraCreate):
+    db_leitura = models.Leituras(device=leitura.device, leitura=leitura.leitura, timestamp=leitura.timestamp)
+    db.add(db_leitura)
+    db.commit()
+    db.refresh(db_leitura)
+    return db_leitura
 
