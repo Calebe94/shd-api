@@ -74,7 +74,7 @@ curl -d '{"timestamp": "1625862265", "leitura": 10.00 }' -H "Content-Type: appli
 
 ## Desenvolvedor
 
-| ![]([https://github.com/calebe94.png))                                      |
+| ![]([https://github.com/calebe94.png)                                       |
 |:---------------------------------------------------------------------------:|
 | [Edimar Calebe Castanho(calebe94@disroot.org)](https://github.com/Calebe94) |
 
