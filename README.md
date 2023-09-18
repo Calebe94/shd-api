@@ -74,9 +74,9 @@ curl -d '{"timestamp": "1625862265", "leitura": 10.00 }' -H "Content-Type: appli
 
 ## Desenvolvedor
 
-| ![](https://assets.gitlab-static.net/uploads/-/system/user/avatar/2382314/avatar.png?width=200) |
-|:------:|
-| [Edimar Calebe Castanho(calebe94@disroot.org)](https://gitlab.com/Calebe94) |
+| ![]([https://github.com/calebe94.png))                                      |
+|:---------------------------------------------------------------------------:|
+| [Edimar Calebe Castanho(calebe94@disroot.org)](https://github.com/Calebe94) |
 
 ## Licença
 
